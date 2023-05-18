@@ -63,14 +63,24 @@ type Flat = Array<{
     dropshipProvider: DropshipProvider;
 }>;
 
+// Function: round
+// Description: Rounds the given number to two decimal places.
+// Parameters:
+// - value: The number to be rounded.
+// Returns: The rounded number.
+function round(value: number): number {
+    // Multiply the value by 100 and round it to the nearest integer.
+    // Then, divide the result by 100 to obtain two decimal places.
+    return Math.round(value * 100) / 100;
+}
+
 function calculateNet(
     grossPrice: number,
     taxRate: number,
     reverse: boolean,
 ): number {
     if (reverse) {
-        // 0.47619047619047616
-        return parseFloat((grossPrice / (1 + taxRate / 100)).toFixed(2));
+        return round(grossPrice / (1 + taxRate / 100));
     }
     return grossPrice;
 }
@@ -83,7 +93,7 @@ function calculateGross(
     if (reverse) {
         return grossPrice;
     }
-    return parseFloat((grossPrice * (1 + taxRate / 100)).toFixed(2));
+    return round(grossPrice * (1 + taxRate / 100));
 }
 
 export default async function handler(
