@@ -1,8 +1,8 @@
 import { createMocks } from 'node-mocks-http';
-import { fetchData } from '../src/utils/routes';
+import { fetchData } from '../src/utils/data';
 import handleTaxCalculation from '../src/pages/api/tax';
 
-jest.mock('../src/utils/routes', () => ({
+jest.mock('../src/utils/data', () => ({
     fetchData: jest.fn(),
 }));
 
