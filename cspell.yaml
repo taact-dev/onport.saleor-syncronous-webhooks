@@ -1,0 +1,10 @@
+---
+ignoreRegExpList:
+- /from\s+(['"]).*\1/
+ignorePaths:
+- node_modules
+ignoreWords:
+- dropship
+- saleor
+- onport
+- taxjar
